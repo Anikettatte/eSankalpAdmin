@@ -1,0 +1,288 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<script src="~/Content/application.js"></script>
+<h2>Index</h2>
+
+<section class="section">
+    <div class="row">
+        <div class="col-lg-10">
+
+            <div class="card p-3">
+                <div class="row my-2 mt-1">
+                    <div class="col-md-12 text-end">
+                        <button onclick="AddApplication()" class="btn btn-primary btn-sm">Add Category</button>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <h2 class="card-title">Application</h2>
+
+                    <div class="table-responsive">
+                        <table id="tblapplication" class="table table-bordered table-hover">
+                            <thead class="text-white bg-dark" align="center">
+                                <tr>
+                                    <td class="text-white bg-dark">Applications_Id</td>
+                                    <td class="text-white bg-dark">Registration_Id</td>
+                                    <td class="text-white bg-dark">Name_Of_Trainee</td>
+                                    <td class="text-white bg-dark">Qualification</td>
+                                    <td class="text-white bg-dark">Mobile</td>
+                                    <td class="text-white bg-dark">EmailId</td>
+                                    <td class="text-white bg-dark">Date_Of_Birth</td>
+                                    <td class="text-white bg-dark">Address</td>
+                                    <td class="text-white bg-dark">State</td>
+                                    <td class="text-white bg-dark">City</td>
+                                    <td class="text-white bg-dark">Pincode</td>
+                                    <td class="text-white bg-dark">Select_Trainee</td>
+                                    <td class="text-white bg-dark">Totalfees</td>
+                                    <td class="text-white bg-dark">Discount</td>
+                                    <td class="text-white bg-dark">Joining_Date</td>
+                                    <td class="text-white bg-dark">Advance_Paid</td>
+                                    <td class="text-white bg-dark">On_Dated</td>
+                                    <td class="text-white bg-dark">Remaining_Amount</td>
+                                    <td class="text-white bg-dark">Created_Date</td>
+                                    <td class="text-white bg-dark">Created_By</td>
+                                    <td class="text-white bg-dark">Update_Date</td>
+                                    <td class="text-white bg-dark">Updated_By</td>
+                                    <td class="text-white bg-dark">Active</td>
+                                    <td class="text-white bg-dark">image</td>
+
+
+                                </tr>
+                            </thead>
+                            <tbody align="center"> </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @*@DetailPOPUP@*@
+
+
+    <div id="applicationModal" class="modal fade" role="dialog">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="container" id="Detailapplication">
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-success" data-bs-dismiss="modal" onclick="applicationDetail()">Print</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">CLOSE</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+<div id="AddapplicationModal" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-body">
+                <h5 class="card-title">application</h5>
+                <input id="hdnid" type="hidden" />
+
+                <form class="row g-3">
+                    <div class="col-md-12">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-floating">
+                                    <input type="text" class="form-control" id="txtRegistrationId" />
+                                    <label for="floatingFlat No">Registration_Id</label>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-floating">
+                                    <input type="text" class="form-control" id="txtName">
+                                    <label>Name_Of_Trainee</label>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <label>Qualification</label>
+                                <select id="ddlQualification" class="form-control">
+                                    <option>Select</option>
+                                    <option>BE</option>
+                                    <option>ME</option>
+                                    <option>MCA</option>
+                                    <option>BCA</option>
+                                    <option>BSc</option>
+                                    <option>Poly</option>
+                                    <option>BCCA</option>
+                                </select>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-12">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-floating">
+                                    <input type="text" class="form-control" id="txtMobile">
+                                    <label for="floatingTextarea">Mobile</label>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-floating">
+                                    <input type="text" class="form-control" id="txtEmailId">
+                                    <label for="floatingTextarea">EmailId</label>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-floating mb-3">
+                                    <input type="date" class="form-control" id="txtDate" placeholder="Resolved By">
+                                    <label for="floatingResolved By">Date_of_Birth</label>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-md-12">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-floating">
+                                    <input type="text" class="form-control" id="txtAddress">
+                                    <label for="floatingTextarea">Address</label>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-floating">
+                                    <input type="text" class="form-control" id="txtState">
+                                    <label for="floatingTextarea">State</label>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-floating mb-3">
+                                    <input type="text" class="form-control" id="txtCity" placeholder="Resolved By">
+                                    <label for="floatingResolved By">City</label>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-md-12">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-floating">
+                                    <input type="text" class="form-control" id="txtPincode">
+                                    <label for="floatingTextarea">Pincode</label>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <label>select_Trainee</label>
+                                <select id="ddlselect_training" class="form-control">
+                                    <option>Select</option>
+                                    <option>HTML5|CSS|JS|Basic Sql</option>
+                                    <option>ASP.NET MVC5|C#|jQuery|AJAX|SQL SQL SERVER|EF|BOOTSTRAP|CSS|JS|WebHosting</option>
+                                    <option>ASP.NET Core 5.0|WebAPI|TypeScript|Angular</option>
+                                </select>
+
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-floating mb-3">
+                                    <input type="text" class="form-control" id="txtTotal" placeholder="Resolved By">
+                                    <label for="floatingResolved By">Total_Fees</label>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-md-12">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-floating">
+                                    <input type="text" class="form-control" id="txtDiscount">
+                                    <label for="floatingTextarea">Discount</label>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-floating">
+                                    <input type="date" class="form-control" id="txtJoining">
+                                    <label for="floatingTextarea">Joining_Date</label>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-floating mb-3">
+                                    <input type="text" class="form-control" id="txtAdvance" placeholder="Resolved By">
+                                    <label for="floatingResolved By">Advance_Paid</label>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-md-12">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-floating">
+                                    <input type="date" class="form-control" id="txtOnDated">
+                                    <label for="floatingTextarea">On_Dated</label>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-floating">
+                                    <input type="text" class="form-control" id="txtRemaining">
+                                    <label for="floatingTextarea">Remaining_Amount</label>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-floating mb-3">
+                                    <input type="date" class="form-control" id="txtCreatedDate" placeholder="Resolved By">
+                                    <label for="floatingResolved By">Created_Date</label>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-md-12">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-floating">
+                                    <input type="text" class="form-control" id="txtCreatedBy">
+                                    <label for="floatingTextarea">Created_By</label>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-floating">
+                                    <input type="date" class="form-control" id="txtUpdateDate">
+                                    <label for="floatingTextarea">Update_Date</label>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-floating mb-3">
+                                    <input type="text" class="form-control" id="txtUpdateBy" placeholder="Resolved By">
+                                    <label for="floatingResolved By">Updated_By</label>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="col-md-4">
+                        <label>Active</label>
+                        <input type="checkbox" id="txtActive">
+
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-floating">
+                            <input type="file" class="form-control" id="file1">
+                            <label for="floatingResolved Date">image</label>
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-primary" onclick="Saveapplication()">SUBMIT</button>
+                        <button type="reset" class="btn btn-warning">RESET</button>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+
+    </div>
+</div>

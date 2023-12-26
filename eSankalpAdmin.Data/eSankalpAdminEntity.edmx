@@ -1,0 +1,136 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="EsankalpadminModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="tblapplication">
+          <Key>
+            <PropertyRef Name="Applications_Id" />
+          </Key>
+          <Property Name="Applications_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Registration_Id" Type="int" />
+          <Property Name="Name_Of_Trainee" Type="nvarchar" MaxLength="56" />
+          <Property Name="Qualification" Type="nvarchar" MaxLength="200" />
+          <Property Name="Mobile" Type="nvarchar" MaxLength="12" />
+          <Property Name="EmailId" Type="nvarchar" MaxLength="200" />
+          <Property Name="Date_Of_Birth" Type="datetime" />
+          <Property Name="Address" Type="nvarchar" MaxLength="500" />
+          <Property Name="State" Type="nvarchar" MaxLength="56" />
+          <Property Name="City" Type="nvarchar" MaxLength="56" />
+          <Property Name="Pincode" Type="nvarchar" MaxLength="10" />
+          <Property Name="Select_Trainee" Type="nvarchar" MaxLength="500" />
+          <Property Name="Totalfees" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Discount" Type="nvarchar" MaxLength="56" />
+          <Property Name="Joining_Date" Type="datetime" />
+          <Property Name="Advance_Paid" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="On_Dated" Type="datetime" />
+          <Property Name="Remaining_Amount" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Created_Date" Type="datetime" />
+          <Property Name="Created_By" Type="int" />
+          <Property Name="Update_Date" Type="datetime" />
+          <Property Name="Updated_By" Type="int" />
+          <Property Name="Active" Type="bit" />
+          <Property Name="image" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityContainer Name="EsankalpadminModelStoreContainer">
+          <EntitySet Name="tblapplication" EntityType="Self.tblapplication" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="EsankalpadminModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="tblapplication">
+          <Key>
+            <PropertyRef Name="Applications_Id" />
+          </Key>
+          <Property Name="Applications_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Registration_Id" Type="Int32" />
+          <Property Name="Name_Of_Trainee" Type="String" MaxLength="56" FixedLength="false" Unicode="true" />
+          <Property Name="Qualification" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Mobile" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
+          <Property Name="EmailId" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Date_Of_Birth" Type="DateTime" Precision="3" />
+          <Property Name="Address" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="State" Type="String" MaxLength="56" FixedLength="false" Unicode="true" />
+          <Property Name="City" Type="String" MaxLength="56" FixedLength="false" Unicode="true" />
+          <Property Name="Pincode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Select_Trainee" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Totalfees" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Discount" Type="String" MaxLength="56" FixedLength="false" Unicode="true" />
+          <Property Name="Joining_Date" Type="DateTime" Precision="3" />
+          <Property Name="Advance_Paid" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="On_Dated" Type="DateTime" Precision="3" />
+          <Property Name="Remaining_Amount" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Created_Date" Type="DateTime" Precision="3" />
+          <Property Name="Created_By" Type="Int32" />
+          <Property Name="Update_Date" Type="DateTime" Precision="3" />
+          <Property Name="Updated_By" Type="Int32" />
+          <Property Name="Active" Type="Boolean" />
+          <Property Name="image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityContainer Name="EsankalpadminEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="tblapplications" EntityType="Self.tblapplication" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="EsankalpadminModelStoreContainer" CdmEntityContainer="EsankalpadminEntities">
+          <EntitySetMapping Name="tblapplications">
+            <EntityTypeMapping TypeName="EsankalpadminModel.tblapplication">
+              <MappingFragment StoreEntitySet="tblapplication">
+                <ScalarProperty Name="Applications_Id" ColumnName="Applications_Id" />
+                <ScalarProperty Name="Registration_Id" ColumnName="Registration_Id" />
+                <ScalarProperty Name="Name_Of_Trainee" ColumnName="Name_Of_Trainee" />
+                <ScalarProperty Name="Qualification" ColumnName="Qualification" />
+                <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+                <ScalarProperty Name="EmailId" ColumnName="EmailId" />
+                <ScalarProperty Name="Date_Of_Birth" ColumnName="Date_Of_Birth" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Pincode" ColumnName="Pincode" />
+                <ScalarProperty Name="Select_Trainee" ColumnName="Select_Trainee" />
+                <ScalarProperty Name="Totalfees" ColumnName="Totalfees" />
+                <ScalarProperty Name="Discount" ColumnName="Discount" />
+                <ScalarProperty Name="Joining_Date" ColumnName="Joining_Date" />
+                <ScalarProperty Name="Advance_Paid" ColumnName="Advance_Paid" />
+                <ScalarProperty Name="On_Dated" ColumnName="On_Dated" />
+                <ScalarProperty Name="Remaining_Amount" ColumnName="Remaining_Amount" />
+                <ScalarProperty Name="Created_Date" ColumnName="Created_Date" />
+                <ScalarProperty Name="Created_By" ColumnName="Created_By" />
+                <ScalarProperty Name="Update_Date" ColumnName="Update_Date" />
+                <ScalarProperty Name="Updated_By" ColumnName="Updated_By" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="image" ColumnName="image" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
